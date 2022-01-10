@@ -7,7 +7,6 @@ class User
     public $firstname = "";
     public $lastname = "";
 
-// INSCRIPTION 
     public function register($login, $password, $email, $firstname, $lastname)
     {
         $bdd = mysqli_connect("localhost", "root", "", "classes");
@@ -29,7 +28,6 @@ class User
         }
     }
 
-    // CONNEXION
     public function connect($login, $password)
     {
         $bdd = mysqli_connect("localhost", "root", "", "classes");
@@ -48,13 +46,12 @@ class User
             echo "Mot de passe incorrect";
         }
     }
-// DECONNEXION
+
 public function disconnect()
 {
     unset($_SESSION['login']);
 }
 
-// SUPPRIMER
 public function delete()
 {
     $bdd = mysqli_connect("localhost", "root", "", "classes");
@@ -68,7 +65,6 @@ public function delete()
     unset($_SESSION['login']);
 }
 
-// MODIFIER PROFIL
 public function update($login, $password, $email, $firstname, $lastname)
 {
     $bdd = mysqli_connect("localhost", "root", "", "classes");
@@ -77,7 +73,6 @@ public function update($login, $password, $email, $firstname, $lastname)
     echo "</br>Votre nouveau login est  \"$login\" ";
 }
 
-    // SI UTILISATEUR EST CONNECTE OU PAS
 public function isConnected()
 {
     $bdd = mysqli_connect("localhost", "root", "", "classes");
@@ -92,7 +87,6 @@ public function isConnected()
     }
 }
 
-// RENVOIE TOUTES LES INFOS UTILISATEIUR
 public function getAllInfos()
 {
     
@@ -102,7 +96,6 @@ public function getAllInfos()
     }
 }
 
-    // RENVOIE LE LOGIN DE L'UTILISATEUR CONNECTE
     public function getLogin()
     {
         if (NULL != $this->id)
@@ -110,7 +103,6 @@ public function getAllInfos()
             return $this->login;
         }
     }
-    // RENVOIE ADRESS EMAIL
     public function getEmail()
     {
         if (NULL != $this->id)
@@ -121,7 +113,6 @@ public function getAllInfos()
         return $this->email;
     }
 
-    // RENVOIE FIRSTNAME
     public function getFirstname()
     {
         if (NULL != $this->id)
@@ -132,7 +123,6 @@ public function getAllInfos()
         return $this->firstname;
     }
 
-    // RENVOIE LASTNAME
     public function getLastname()
     {
         if (NULL != $this->lastname)
@@ -143,7 +133,6 @@ public function getAllInfos()
         return $this->lastname;
     }
 
-    // METTRE A JOUR 
     public function refresh()
     {
         $bdd = mysqli_connect("localhost", "root", "", "classes");

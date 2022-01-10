@@ -2,24 +2,15 @@
 session_start();
 class User
 {
-    // Les objets:
     private $id;
     public $login;
     public $email;
     public $firstname;
     public $lastname;
 
-
     public function __construct()
     {
     }
-
-    // REQUETE PRECISE SI BESOIN
-    // public function __destruct()
-    // {
-
-    // }
-
 
     public function register($login, $password, $email, $firstname, $lastname)
     {
